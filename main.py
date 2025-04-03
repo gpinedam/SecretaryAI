@@ -1,6 +1,4 @@
-
-OPENAI_API_KEY = "sk-AI51AIYblTdgE7gR6IR68WjCW1cgWi1QTju1xYeKSqT3BlbkFJsvN7jKXJxu3ulYUgXy3TX69Ec02LhXisbQ6mVcqLgA"
-
+import os
 import openai
 import csv
 import re
@@ -8,9 +6,9 @@ from datetime import date
 from datetime import datetime
 
 now = datetime.now()
-
+api_key = os.getenv("OPENAI_API_KEY")
 # Configuración de OpenAI
-client = openai.OpenAI(api_key=OPENAI_API_KEY)
+client = openai.OpenAI(api_key=api_key)
 
 # Almacenamiento de citas
 appointments = []
@@ -29,7 +27,7 @@ def chat_with_secretaryai(user_message, session_id):
 
         # Generar respuesta usando la API de OpenAI
         response = client.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": f"Eres un asistente para agendar citas. Solicita el nombre, número de teléfono y la fecha(Ten en cuenta que la fecha actual es {now}) de la cita lo apunta en el formato YYYY-MM-DD y la hora en el formato 24 horas. de la forma"
                                               "- Nombre: "
