@@ -9,6 +9,7 @@ now = datetime.now()
 api_key = os.getenv("OPENAI_API_KEY")
 # Configuración de OpenAI
 client = openai.OpenAI(api_key=api_key)
+
 # Almacenamiento de citas
 appointments = []
 # Almacenamiento de historiales
