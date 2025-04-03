@@ -16,6 +16,7 @@ appointments = []
 # Almacenamiento de historiales
 session_histories = {}
 
+
 def chat_with_secretaryai(user_message, session_id):
     """Gestiona la conversación con SecretaryAI usando ChatGPT y permite agendar citas."""
     try:
