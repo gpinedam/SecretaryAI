@@ -5,6 +5,7 @@ import re
 from datetime import date
 from datetime import datetime
 
+
 now = datetime.now()
 api_key = os.getenv("OPENAI_API_KEY")
 # Configuración de OpenAI
