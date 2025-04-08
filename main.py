@@ -2,14 +2,13 @@ import os
 import openai
 import csv
 import re
-from datetime import date
 from datetime import datetime
 
 
 now = datetime.now()
-api_key = os.getenv("OPENAI_API_KEY")
+
 # Configuración de OpenAI
-client = openai.OpenAI(api_key=api_key)
+client = openai.OpenAI(api_key="YOUR API KEY")
 
 # Almacenamiento de citas
 appointments = []
