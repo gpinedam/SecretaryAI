@@ -110,15 +110,9 @@ Las contribuciones son bienvenidas. Por favor:
 4. Haz push a la rama (`git push origin feature/amazing-feature`)
 5. Abre un Pull Request
 
-## Licencia
-
-[Especifica tu licencia aquí, por ejemplo MIT o GPL]
 
 ## Autor
 
-[Tu nombre]
+George Pineda
 
-## Agradecimientos
 
-- OpenAI por proporcionar la API de ChatGPT
-- Todos los contribuyentes al proyecto
