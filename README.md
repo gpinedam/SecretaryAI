@@ -1,56 +1,124 @@
-SecretaryAI
-Este proyecto implementa un asistente virtual para agenda de citas utilizando la API de OpenAI. El asistente recopila información como nombre, número de teléfono, fecha y hora para agendar citas, y guarda estos datos en un archivo CSV.
-Características
+# SecretaryAI
 
-Interfaz de conversación natural mediante modelos de OpenAI (GPT-4o-mini)
-Extracción automática de información relevante para citas
-Almacenamiento persistente de citas en formato CSV
-Gestión de múltiples sesiones de usuario
+Un asistente virtual basado en la API de OpenAI para agendar citas y almacenarlas en formato CSV.
 
-Requisitos
+## Descripción
 
-Python 3.6+
-Librería OpenAI
-Acceso a la API de OpenAI (clave API)
+SecretaryAI es una aplicación de línea de comandos que proporciona un asistente conversacional para la gestión de citas. Utiliza el modelo GPT-4o-mini de OpenAI para mantener conversaciones naturales con los usuarios y extraer automáticamente la información relevante para agendar citas.
 
-Instalación
+## Características
 
-Clona este repositorio:
+- Interfaz conversacional usando la API de OpenAI
+- Extracción automática de datos de citas (nombre, teléfono, fecha y hora)
+- Almacenamiento persistente en formato CSV
+- Gestión de múltiples sesiones de conversación
+- Cumplimiento con las convenciones de estilo PEP8
 
+## Requisitos
+
+- Python 3.6+
+- Librería OpenAI
+- Clave API de OpenAI
+
+## Instalación
+
+1. Clona este repositorio:
+```bash
 git clone https://github.com/tu-usuario/secretaryai.git
 cd secretaryai
+```
 
-Instala las dependencias:
-
+2. Instala las dependencias:
+```bash
 pip install openai
+```
 
-Configura tu clave API de OpenAI:
-Edita el archivo y reemplaza "YOUR API KEY" con tu clave API real.
+3. Configura tu clave API:
+   - Abre el archivo `secretaryai.py`
+   - Reemplaza `"YOUR API KEY"` con tu clave API de OpenAI
 
-Uso
-Para iniciar el asistente, ejecuta:
+## Uso
+
+Para iniciar el asistente:
+
+```bash
 python secretaryai.py
-Comandos básicos
+```
 
-Inicia una conversación normal describiendo la cita que deseas agendar
-Escribe "salir", "exit" o "quit" para terminar la sesión
+### Interacción con el asistente
 
-Estructura de datos
-Las citas se almacenan en citas_agendadas.csv con los siguientes campos:
+1. Inicia una conversación describiendo tu necesidad de agendar una cita
+2. El asistente te guiará solicitando:
+   - Nombre
+   - Número de teléfono
+   - Fecha de la cita (formato YYYY-MM-DD)
+   - Hora de la cita (formato 24 horas)
+3. Una vez proporcionados todos los datos, la cita se guardará automáticamente
 
-name: Nombre del cliente
-phone: Número de teléfono
-date: Fecha de la cita (formato YYYY-MM-DD)
-hour: Hora de la cita (formato 24 horas)
+Para salir del asistente, escribe: `salir`, `exit` o `quit`
 
-Ejemplo de uso
+## Formato de datos
+
+Las citas se almacenan en un archivo CSV (`citas_agendadas.csv`) con los siguientes campos:
+
+| Campo | Descripción |
+|-------|-------------|
+| name  | Nombre del cliente |
+| phone | Número de teléfono |
+| date  | Fecha de la cita (YYYY-MM-DD) |
+| hour  | Hora de la cita (HH:MM) |
+
+## Ejemplo de diálogo
+
+```
 Bienvenido a SecretaryAI. ¿En qué puedo ayudarte?
-Tú: Quiero agendar una cita
-SecretaryAI: Claro, estaré encantado de ayudarte a agendar una cita. Por favor, proporciona los siguientes datos:
+Tú: Necesito agendar una cita para mañana
+SecretaryAI: Claro, estaré encantado de ayudarte a agendar una cita para mañana. Por favor, proporcióneme los siguientes datos:
 
-- Nombre:
-- Número de teléfono:
+- Nombre: 
+- Número de teléfono: 
 - Fecha de la cita:
-- Hora de la cita:
-Contribuciones
-Las contribuciones son bienvenidas. Por favor, siente libre de abrir un issue o enviar un pull request.
+- Hora de la cita: 
+
+Tú: Mi nombre es Juan Pérez, mi teléfono es 123456789, para mañana a las 15:00
+SecretaryAI: Gracias por proporcionar esa información. Permíteme confirmar los detalles:
+
+- Nombre: Juan Pérez
+- Número de teléfono: 123456789
+- Fecha de la cita: 2025-04-14
+- Hora de la cita: 15:00
+
+Cita agendada exitosamente para Juan Pérez el 2025-04-14. Archivo actualizado.
+```
+
+## Estructura del código
+
+El código sigue las convenciones PEP8 y está organizado en las siguientes funciones principales:
+
+- `chat_with_secretaryai()`: Gestiona la conversación con la API de OpenAI
+- `extract_appointment_data()`: Extrae los datos de cita de las respuestas
+- `update_appointments_csv()`: Actualiza el archivo CSV con nuevas citas
+- `main()`: Función principal que ejecuta el bucle de interacción
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Por favor:
+
+1. Haz fork del repositorio
+2. Crea una rama para tu funcionalidad (`git checkout -b feature/amazing-feature`)
+3. Haz commit de tus cambios (`git commit -m 'Add some amazing feature'`)
+4. Haz push a la rama (`git push origin feature/amazing-feature`)
+5. Abre un Pull Request
+
+## Licencia
+
+[Especifica tu licencia aquí, por ejemplo MIT o GPL]
+
+## Autor
+
+[Tu nombre]
+
+## Agradecimientos
+
+- OpenAI por proporcionar la API de ChatGPT
+- Todos los contribuyentes al proyecto
